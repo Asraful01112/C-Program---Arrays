@@ -1,0 +1,28 @@
+#include <stdio.h>
+
+int main() {
+    int n;
+    
+    printf("Enter the order of the square matrix (n x n): ");
+    scanf("%d", &n);
+
+    int a[n][n];
+    int mainDiag = 0, secDiag = 0;
+
+    printf("Enter the elements of the matrix:\n");
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            scanf("%d", &a[i][j]);
+        }
+    }
+
+    for (int i = 0; i < n; i++) {
+        mainDiag += a[i][i];               
+        secDiag += a[i][n - i - 1];       
+    }
+
+    printf("\nSum of Main Diagonal = %d\n", mainDiag);
+    printf("Sum of Secondary Diagonal = %d\n", secDiag);
+
+    return 0;
+}
