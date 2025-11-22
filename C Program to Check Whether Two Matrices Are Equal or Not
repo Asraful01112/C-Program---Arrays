@@ -1,0 +1,40 @@
+#include <stdio.h>
+
+int main() {
+    int r, c;
+    printf("Enter number of rows: ");
+    scanf("%d", &r);
+    printf("Enter number of columns: ");
+    scanf("%d", &c);
+
+    int arr[r][c];
+
+    printf("Enter the elements of the %dx%d array:\n", r, c);
+    for(int i = 0; i < r; i++) {
+        for(int j = 0; j < c; j++) {
+            scanf("%d", &arr[i][j]);
+        }
+    }
+
+    for(int i = 0; i < r; i++) {
+        for(int j = 0; j < c-1; j++) {
+            for(int k = j+1; k < c; k++) {
+                if(arr[i][j] > arr[i][k]) {
+                    int temp = arr[i][j];
+                    arr[i][j] = arr[i][k];
+                    arr[i][k] = temp;
+                }
+            }
+        }
+    }
+
+    printf("\n2D Array after sorting each row:\n");
+    for(int i = 0; i < r; i++) {
+        for(int j = 0; j < c; j++) {
+            printf("%d ", arr[i][j]);
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
